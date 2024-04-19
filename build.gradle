@@ -1,0 +1,48 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.2.2.RELEASE'
+	id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'dice.tech'
+version = '0.0.1-SNAPSHOT'
+
+java {
+	sourceCompatibility = '1.8'
+}
+
+repositories {
+	mavenCentral()
+}
+
+jar {
+	duplicatesStrategy(DuplicatesStrategy.EXCLUDE)
+	manifest {
+
+		attributes(
+				'Main-Class': 'in.matrimony.registration.RegistrationApplication'
+		)
+	}
+}
+
+
+dependencies {
+	//implementation 'org.jetbrains:annotations:24.0.0'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	//implementation 'org.springframework.boot:spring-boot-starter-logback'
+
+	//implementation 'org.springframework.boot:spring-boot-starter-security:3.1.5'
+	//implementation 'org.springframework.security:spring-security-config:4.2.3.RELEASE'
+	//implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	//implementation 'mysql:mysql-connector-java:8.0.31'
+	implementation 'com.google.code.gson:gson:2.8.6'
+	//GSON ENDS
+
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
